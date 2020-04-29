@@ -470,24 +470,6 @@ void compileForSt(void) {
   assert("For statement parsed ....");
 }
 
-// void compileArguments(void) {
-//   while(lookAhead->tokenType == SB_LPAR){
-//     eat(SB_LPAR);
-//     compileExpression();
-//     compileArguments2();
-//     eat(SB_RPAR);
-//   }
-// }
-
-// void compileArguments2(void) {
-//   while (lookAhead->tokenType == SB_COMMA)
-//   {
-//     eat(SB_COMMA);
-//     compileExpression();
-//     compileArguments2();
-//   }
-// }
-
 void compileArguments(void)
 {
   switch (lookAhead->tokenType)
@@ -622,51 +604,10 @@ void compileExpression2(void) {
   compileExpression3();
 }
 
-// void compileExpression3(void) {
-//   while(lookAhead->tokenType == SB_PLUS || lookAhead->tokenType == SB_MINUS)
-//   {
-//     switch (lookAhead->tokenType)
-//     {
-//     case SB_PLUS:
-//       eat(SB_PLUS);
-//       compileTerm();
-//       compileExpression3();
-//       break;
-
-//     case SB_MINUS:
-//       eat(SB_MINUS);
-//       compileTerm();
-//       compileExpression3();
-//       break;
-
-
-//     }
-//   }
-// }
-
 void compileTerm(void) {
   compileFactor();
   compileTerm2();
 }
-
-// void compileTerm2(void) {
-//   while (lookAhead->tokenType == SB_TIMES ||
-//          lookAhead->tokenType == SB_SLASH)
-//   {
-//     switch (lookAhead->tokenType)
-//     {
-//     case SB_TIMES:
-//       eat(SB_TIMES);
-//       compileFactor();
-//       break;
-
-//     case SB_SLASH:
-//       eat(SB_SLASH);
-//       compileFactor();
-//       break;
-//     }
-//   }
-// }
 
 void compileExpression3(void)
 {

@@ -40,10 +40,12 @@ Type* makeArrayType(int arraySize, Type* elementType) {
   return type;
 }
 
-Type* duplicateType(Type* type) {
-  Type* resultType = (Type*) malloc(sizeof(Type));
+Type *duplicateType(Type *type)
+{
+  Type *resultType = (Type *)malloc(sizeof(Type));
   resultType->typeClass = type->typeClass;
-  if (type->typeClass == TP_ARRAY) {
+  if (type->typeClass == TP_ARRAY)
+  {
     resultType->arraySize = type->arraySize;
     resultType->elementType = duplicateType(type->elementType);
   }
@@ -51,13 +53,17 @@ Type* duplicateType(Type* type) {
 }
 
 int compareType(Type* type1, Type* type2) {
-  if (type1->typeClass == type2->typeClass) {
-    if (type1->typeClass == TP_ARRAY) {
-      if (type1->arraySize == type2->arraySize)
-	return compareType(type1->elementType, type2->elementType);
-      else return 0;
-    } else return 1;
-  } else return 0;
+  if(type1->typeClass == type2->typeClass){
+    if(type1->typeClass == TP_ARRAY){
+      if(type1->arraySize == type2->arraySize)
+        return compareType(type1->elementType, type2->elementType);
+      else
+        return 0;
+    }
+    else
+      return 1;
+  }
+  return 0;
 }
 
 void freeType(Type* type) {
@@ -76,26 +82,27 @@ void freeType(Type* type) {
 /******************* Constant utility ******************************/
 
 ConstantValue* makeIntConstant(int i) {
-  ConstantValue* value = (ConstantValue*) malloc(sizeof(ConstantValue));
+  ConstantValue *value = (ConstantValue *)malloc(sizeof(ConstantValue));
   value->type = TP_INT;
   value->intValue = i;
   return value;
 }
 
 ConstantValue* makeCharConstant(char ch) {
-  ConstantValue* value = (ConstantValue*) malloc(sizeof(ConstantValue));
+  ConstantValue *value = (ConstantValue *)malloc(sizeof(ConstantValue));
   value->type = TP_CHAR;
   value->charValue = ch;
   return value;
 }
 
 ConstantValue* duplicateConstantValue(ConstantValue* v) {
-  ConstantValue* value = (ConstantValue*) malloc(sizeof(ConstantValue));
+  ConstantValue *value = (ConstantValue *)malloc(sizeof(ConstantValue));
   value->type = v->type;
-  if (v->type == TP_INT)
+  if(v->type == TP_INT)
     value->intValue = v->intValue;
   else
     value->charValue = v->charValue;
+
   return value;
 }
 
@@ -121,62 +128,75 @@ Object* createProgramObject(char *programName) {
 }
 
 Object* createConstantObject(char *name) {
-  Object* obj = (Object*) malloc(sizeof(Object));
+  Object *obj = (Object *)malloc(sizeof(Object));
   strcpy(obj->name, name);
   obj->kind = OBJ_CONSTANT;
-  obj->constAttrs = (ConstantAttributes*) malloc(sizeof(ConstantAttributes));
+  obj->constAttrs = (ConstantAttributes *)malloc(sizeof(ConstantAttributes));
+
   return obj;
 }
 
 Object* createTypeObject(char *name) {
-  Object* obj = (Object*) malloc(sizeof(Object));
+  // TODO
+  Object *obj = (Object *)malloc(sizeof(Object));
   strcpy(obj->name, name);
   obj->kind = OBJ_TYPE;
-  obj->typeAttrs = (TypeAttributes*) malloc(sizeof(TypeAttributes));
+  obj->typeAttrs = (TypeAttributes *)malloc(sizeof(TypeAttributes));
+
   return obj;
 }
 
 Object* createVariableObject(char *name) {
-  Object* obj = (Object*) malloc(sizeof(Object));
+  // TODO
+  Object *obj = (Object *)malloc(sizeof(Object));
   strcpy(obj->name, name);
   obj->kind = OBJ_VARIABLE;
-  obj->varAttrs = (VariableAttributes*) malloc(sizeof(VariableAttributes));
+  obj->varAttrs = (VariableAttributes *)malloc(sizeof(VariableAttributes));
   obj->varAttrs->scope = symtab->currentScope;
+
   return obj;
 }
 
 Object* createFunctionObject(char *name) {
-  Object* obj = (Object*) malloc(sizeof(Object));
+  // TODO
+  Object *obj = (Object *)malloc(sizeof(Object));
   strcpy(obj->name, name);
   obj->kind = OBJ_FUNCTION;
-  obj->funcAttrs = (FunctionAttributes*) malloc(sizeof(FunctionAttributes));
+  obj->funcAttrs = (FunctionAttributes *)malloc(sizeof(FunctionAttributes));
   obj->funcAttrs->paramList = NULL;
   obj->funcAttrs->scope = createScope(obj, symtab->currentScope);
+
   return obj;
 }
 
 Object* createProcedureObject(char *name) {
-  Object* obj = (Object*) malloc(sizeof(Object));
+  // TODO
+  Object *obj = (Object *)malloc(sizeof(Object));
   strcpy(obj->name, name);
   obj->kind = OBJ_PROCEDURE;
-  obj->procAttrs = (ProcedureAttributes*) malloc(sizeof(ProcedureAttributes));
+  obj->procAttrs = (ProcedureAttributes *)malloc(sizeof(ProcedureAttributes));
   obj->procAttrs->paramList = NULL;
   obj->procAttrs->scope = createScope(obj, symtab->currentScope);
+
   return obj;
 }
 
 Object* createParameterObject(char *name, enum ParamKind kind, Object* owner) {
-  Object* obj = (Object*) malloc(sizeof(Object));
+  // TODO
+  Object *obj = (Object *)malloc(sizeof(Object));
   strcpy(obj->name, name);
   obj->kind = OBJ_PARAMETER;
-  obj->paramAttrs = (ParameterAttributes*) malloc(sizeof(ParameterAttributes));
+  obj->paramAttrs = (ParameterAttributes *)malloc(sizeof(ParameterAttributes));
   obj->paramAttrs->kind = kind;
   obj->paramAttrs->function = owner;
+
   return obj;
 }
 
 void freeObject(Object* obj) {
-  switch (obj->kind) {
+  // TODO
+  switch (obj->kind)
+  {
   case OBJ_CONSTANT:
     free(obj->constAttrs->value);
     free(obj->constAttrs);
@@ -208,19 +228,23 @@ void freeObject(Object* obj) {
     freeType(obj->paramAttrs->type);
     free(obj->paramAttrs);
   }
+
   free(obj);
 }
 
 void freeScope(Scope* scope) {
+  // TODO
   freeObjectList(scope->objList);
   free(scope);
 }
 
 void freeObjectList(ObjectNode *objList) {
-  ObjectNode* list = objList;
+  // TODO
+  ObjectNode *list = objList;
 
-  while (list != NULL) {
-    ObjectNode* node = list;
+  while (list != NULL)
+  {
+    ObjectNode *node = list;
     list = list->next;
     freeObject(node->object);
     free(node);
@@ -228,10 +252,12 @@ void freeObjectList(ObjectNode *objList) {
 }
 
 void freeReferenceList(ObjectNode *objList) {
-  ObjectNode* list = objList;
+  // TODO
+  ObjectNode *list = objList;
 
-  while (list != NULL) {
-    ObjectNode* node = list;
+  while (list != NULL)
+  {
+    ObjectNode *node = list;
     list = list->next;
     free(node);
   }
@@ -252,10 +278,13 @@ void addObject(ObjectNode **objList, Object* obj) {
 }
 
 Object* findObject(ObjectNode *objList, char *name) {
-  while (objList != NULL) {
+  // TODO
+  while (objList != NULL)
+  {
     if (strcmp(objList->object->name, name) == 0)
       return objList->object;
-    else objList = objList->next;
+    else
+      objList = objList->next;
   }
   return NULL;
 }

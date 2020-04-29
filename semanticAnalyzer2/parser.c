@@ -345,7 +345,7 @@ void compileParams(void) {
 }
 
 void compileParam(void) {
-  //TODO: create and declare a parameter
+  //TODO:ed create and declare a parameter
   Object* paramObj = NULL;
   switch (lookAhead->tokenType) {
   case TK_IDENT:

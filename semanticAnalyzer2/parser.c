@@ -477,6 +477,7 @@ void compileArguments(void) {
     compileArgument();
 
     while (lookAhead->tokenType == SB_COMMA) {
+
       eat(SB_COMMA);
       compileArgument();
     }

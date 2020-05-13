@@ -275,7 +275,7 @@ ConstantValue* compileConstant2(void) {
     // TODO: check if the integer constant identifier is declared and get its value
     obj = checkDeclaredConstant(currentToken->string);
     if(obj != NULL)
-      constValue = duplicateType(obj->constAttrs->value);
+      constValue = duplicateConstantValue(obj->constAttrs->value);
     else
       error(ERR_UNDECLARED_CONSTANT, currentToken->lineNo, currentToken->colNo);
 

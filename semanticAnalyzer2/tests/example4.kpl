@@ -1,7 +1,7 @@
 PROGRAM  EXAMPLE4;  (* Example 4 *)
 CONST MAX = 10;
 TYPE T = INTEGER;
-VAR  A : ARRAY(. 10 .) OF T;
+VAR  A : ARRAY(. 10 .) OF ;
      N : INTEGER;
      CH : CHAR;
 

@@ -6,6 +6,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 
 #include "reader.h"
 #include "charcode.h"
@@ -60,8 +62,9 @@ Token* readIdentKeyword(void) {
   token->string[0] = (char)currentChar;
   readChar();
 
-  while((currentChar != EOF) &&
-        ((charCodes[currentChar] == CHAR_LETTER) || (charCodes[currentChar] == CHAR_DIGIT))){
+  while ((currentChar != EOF) &&
+         ((charCodes[currentChar] == CHAR_LETTER) || (charCodes[currentChar] == CHAR_DIGIT) || (charCodes[currentChar] == CHAR_UNDERSCORE)))
+  {
     if(count <= MAX_IDENT_LEN)
       token->string[count++] = (char)currentChar;
     readChar();
@@ -75,8 +78,15 @@ Token* readIdentKeyword(void) {
   token->string[count] = '\0';
   token->tokenType = checkKeyword(token->string);
 
-  if(token->tokenType == TK_NONE)
+
+  if(token->tokenType == TK_NONE){
+
+    // if (*token->string != tolower(*token->string))
+    // {
+    //   printf("ERR_INVALIDINDENT\n");
+    // }
     token->tokenType = TK_IDENT;
+  }
 
   return token;
 }

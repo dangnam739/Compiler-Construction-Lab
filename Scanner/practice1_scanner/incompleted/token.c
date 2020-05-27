@@ -1,4 +1,4 @@
-/* 
+/*
  * @copyright (c) 2008, Hedspi, Hanoi University of Technology
  * @author Huu-Duc Nguyen
  * @version 1.0
@@ -36,7 +36,7 @@ struct {
 
 int keywordEq(char *kw, char *string) {
   while ((*kw != '\0') && (*string != '\0')) {
-    if (*kw != toupper(*string)) break;
+    if (*kw != tolower(*string)) break;
     kw ++; string ++;
   }
   return ((*kw == '\0') && (*string == '\0'));
@@ -45,7 +45,7 @@ int keywordEq(char *kw, char *string) {
 TokenType checkKeyword(char *string) {
   int i;
   for (i = 0; i < KEYWORDS_COUNT; i++)
-    if (keywordEq(keywords[i].string, string)) 
+    if (keywordEq(keywords[i].string, string))
       return keywords[i].tokenType;
   return TK_NONE;
 }

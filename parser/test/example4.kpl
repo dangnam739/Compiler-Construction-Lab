@@ -38,7 +38,7 @@ BEGIN
 END;
 
 BEGIN
-   CH := 'y';
+   CH := 'y;
    WHILE CH = 'y' DO
      BEGIN
        CALL INPUT;

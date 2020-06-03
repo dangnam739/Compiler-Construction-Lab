@@ -102,5 +102,6 @@ Tại sao có các hàm về Variable, Constant nhưng vẫn phải check Indent
 
 Khi nào sử dụng DuplicateIndent, DuplicateConstant
 
+CompileLValue : Kiểm tra kiểu dữ liệu bên vế trái
  
 

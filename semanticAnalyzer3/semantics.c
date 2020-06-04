@@ -111,6 +111,8 @@ Object* checkDeclaredLValueIdent(char* name) {
     error(ERR_UNDECLARED_IDENT, currentToken->lineNo, currentToken->colNo);
   if (obj->kind != OBJ_FUNCTION && obj->kind != OBJ_PARAMETER && obj->kind != OBJ_VARIABLE)
     error(ERR_INVALID_IDENT, currentToken->lineNo, currentToken->colNo);
+  // if(obj->kind == OBJ_FUNCTION && obj != symtab->currentScope->owner)
+  //   error(ERR_INVALID_LVALUE, currentToken->lineNo, currentToken->colNo);
 
   return obj;
 }

@@ -1,3 +1,5 @@
+semanticAnalyzer 3
+
 1. ERR_UNDECLARED_TYPE
 
 Example 4: xoa bo TYPE T = INTEGER; 
@@ -100,8 +102,26 @@ chỗ nào sd luật phạm vi gần nhất -> sd được lookupOject
 
 Tại sao có các hàm về Variable, Constant nhưng vẫn phải check Indent
 
-Khi nào sử dụng DuplicateIndent, DuplicateConstant
+Khi nào sử dụng DuplicateIndent, DuplicateConstant, DuplicateType
 
-CompileLValue : Kiểm tra kiểu dữ liệu bên vế trái
+Check function return --> lỗi
+
+- Thay tên program = INPUT - example 4 --> INPUT được lưu ở đâu (program)
+INPUT (procedure sẽ đc lưu objectLíst do ko có lỗi --> INPUT (program) sẽ lưu ở chỗ khác ? )
+- CheckDeclaredType được sử dụng ở đâu ? (ở phần compileType kiểm tra kiểu người dùng định nghĩa )
+
+
+
+
+semanticAnalyzer 4
+
+1. Kiểm tra trường hợp khai thừa chiều và thiếu chiều.
+
+2. CompileLValue : Kiểm tra kiểu dữ liệu bên vế trái
+
+3. Trong for có phép giống như phép gán --> chỉ có kiểu var --> có 2 kiểu dữ liệu cơ bản (integer & char)
  
+4. Tham số một hàm có là 1 mảng được ko ? (quy định trong cú pháp) --> ko, kiểu tham số là Basic Type
+
+5. Chỉ số chỉ có một kiểu Integer
 

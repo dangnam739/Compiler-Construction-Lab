@@ -1,9 +1,9 @@
-PROGRAM  INPUT;  (* Example 4 *)
+PROGRAM  EXAMPLE4;  (* Example 4 *)
 CONST MAX = 10;
 TYPE T = INTEGER;
 VAR  A : ARRAY(. 10 .) OF T;
      N : INTEGER;
-     CH: CHAR;
+     CH : CHAR;
 
 PROCEDURE INPUT;
 VAR I : INTEGER;
@@ -17,7 +17,7 @@ END;
 PROCEDURE OUTPUT;
 VAR I : INTEGER;
 BEGIN
-  FOR I := 1 TO 10 DO
+  FOR I := 1 TO N DO
      BEGIN
        CALL WRITEI(A(.I.));
        CALL WRITELN;

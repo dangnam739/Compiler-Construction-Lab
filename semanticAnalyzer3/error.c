@@ -1,4 +1,4 @@
-/* 
+/*
  * @copyright (c) 2008, Hedspi, Hanoi University of Technology
  * @author Huu-Duc Nguyen
  * @version 1.0
@@ -49,7 +49,7 @@ struct ErrorMessage errors[29] = {
 
 void error(ErrorCode err, int lineNo, int colNo) {
   int i;
-  for (i = 0 ; i < NUM_OF_ERRORS; i ++) 
+  for (i = 0 ; i < NUM_OF_ERRORS; i ++)
     if (errors[i].errorCode == err) {
       printf("%d-%d:%s\n", lineNo, colNo, errors[i].message);
       exit(0);

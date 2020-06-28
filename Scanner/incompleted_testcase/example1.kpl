@@ -1,4 +1,0 @@
-Program Comparison; (* Test *)
-Begin
-    If x <> y Then x := x - y;
-End. (* Test *)

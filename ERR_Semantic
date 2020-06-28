@@ -132,3 +132,11 @@ semanticAnalyzer 4
 5. Chỉ số chỉ có một kiểu Integer
 
 Dạng lệnh của máy đích và các lệnh cần dùng
+
+
+
+Vấn đề ký tự: Biểu thức có dùng ký tự được không
+Khai biến mảng dung biến đơn ? hoặc mảng ít chiều hơn ?
+khai bóa biến đơn dùng biến ,mảng hoặc biến mảng nhưng ko có chỉ số.
+-> compileLValue
+Nếu mảng

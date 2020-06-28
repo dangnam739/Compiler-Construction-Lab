@@ -415,7 +415,6 @@ Type* compileLValue(void) {
   Type* varType;
 
   eat(TK_IDENT);
-
   var = checkDeclaredLValueIdent(currentToken->string);
 
   switch (var->kind) {
@@ -787,7 +786,6 @@ Type* compileFactor(void) {
 
 Type* compileIndexes(Type* arrayType) {
   Type* type;
-
 
   while (lookAhead->tokenType == SB_LSEL) {
     eat(SB_LSEL);

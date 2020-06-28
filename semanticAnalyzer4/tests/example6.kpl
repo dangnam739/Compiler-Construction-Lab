@@ -5,9 +5,12 @@ Program Example6;
    Var v1 : Integer;
        v2 : Array(. 10 .) of t1;
 
-   Function F(p1 : Integer; Var p2 : char) : Integer;
+   Function F(p1 : Array(. 10 .) of integer ; Var p2 : char) : Integer;
      Begin
-       f := c1;
+          for i := 1 to 10 do
+          Begin
+          f := f + p1(.i.);
+          End;
      End;
 
    procedure p(v1 : integer);
@@ -19,7 +22,7 @@ Program Example6;
          v3 : char;
      begin
 	v3 := 'a';
-        v1 := f(c3,v3);
+        v1 := f(c3, 1+3);
      end;
 
 Begin

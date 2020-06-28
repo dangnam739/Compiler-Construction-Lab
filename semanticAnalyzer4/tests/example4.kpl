@@ -37,13 +37,21 @@ BEGIN
      END
 END;
 
+FUNCTION G(X : INTEGER): INTEGER;
+BEGIN
+  G := X;
+END;
+
 BEGIN
    CH := 'y';
+
+   N := G;
+
    WHILE CH = 'y' DO
      BEGIN
        CALL INPUT;
        CALL OUTPUT;
-       CALL WRITEI(SUM);
+       CALL WRITEI(SUM(N));
        CH := READC;
      END
 END.  (* Example 4 *)

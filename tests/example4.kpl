@@ -1,10 +1,9 @@
 PROGRAM  EXAMPLE4;  (* Example 4 *)
-
+CONST MAX = 10;
 TYPE T = INTEGER;
 VAR  A : ARRAY(. 10 .) OF T;
      N : INTEGER;
      CH : CHAR;
-     MAX: INTEGER;
 
 PROCEDURE INPUT;
 VAR I : INTEGER;
@@ -34,7 +33,7 @@ BEGIN
     WHILE I <= N DO
      BEGIN
        S := S + A(.I.);
-       I := I + ;
+       I := I + 1;
      END
 END;
 
@@ -46,14 +45,5 @@ BEGIN
        CALL OUTPUT;
        CALL WRITEI(SUM);
        CH := READC;
-     END;
-
-  MAX := A(.0.);
-
-  FOR I:=1 TO N DO
-    BEGIN
-      IF A(.I.) > MAX THEN
-        MAX := A(.I.);
-    END;
-  CALL WRITEI(MAX);
+     END
 END.  (* Example 4 *)
